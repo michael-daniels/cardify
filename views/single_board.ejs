@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Single Board</title>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="#"><div class="logo"><i class="fa fa-clone"></i> Cardify</div></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+      </div>
+      <a class="navbar-brand" href="/board_list">my boards</a>
+      <a class="navbar-brand" href="/logout">logout</a>
+    </nav>
+  </header>
+  <div class="wrapper">
+
+    <div id="theBoardTitle"><h2 class=""><%= boardInfo[0].board_name %></h2></div>
+    <div class="the-board-title-form" id="theBoardTitleForm"><form class="" action="/board/update/<%= boardInfo[0].board_id %>/" method="post">
+      <input class="form-control the-board-title-form-input" type="text" name="board_name" value="<%= boardInfo[0].board_name %>">
+    </form>
+  </div>
+    <hr>
+    <div class="row">
+        <% for (let i = 0; i < boardInfo.length; i++) { %>
+          <div class="col-md-3">
+
+            <div class="single-column">
+
+              <div id="theColumnTitle" class="column-name"><h4><%= boardInfo[i].column_name %></h4></div>
+
+              <div id ="theColumnTitleForm" class="the-column-title-form">
+                <form class="" action="/edit/column/<%= boardInfo[i].column_id %>" method="post">
+                  <input class="form-control" type="text" name="column_name" value="<%= boardInfo[i].column_name %>">
+                </form>
+              </div>
+              <hr>
+
+              <!--Add card -->
+
+              <div class="add-single-card">
+                <div class="card-content">
+                  <div id="addCardForm" class="add-card-form">
+                    <form action="/create/board/<%= boardID[0] %>/column/<%= boardInfo[i].column_id %>/card %>" method="post">
+                      <input class="form-control" type="text" name="card_name" placeholder="New Card Title">
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!--end add card-->
+
+
+
+              <% for (let j = 0; j < boardInfo[i].column_cards.length; j++) { %>
+
+              <div class="single-card">
+
+                <div class="card-name">
+                  <h5><%= boardInfo[i].column_cards[j].card_name %></h5>
+                </div>
+                <div class="card-content">
+                  <a href="#"  data-toggle="modal" data-target="#theModal-<%= boardInfo[i].column_cards[j].card_id %>"><p><%= boardInfo[i].column_cards[j].content %></p></a>
+                </div>
+                <div class="modal fade" id="theModal-<%= boardInfo[i].column_cards[j].card_id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <form class="" action="/edit/board/<%= boardID[0] %>/card/<%= boardInfo[i].column_cards[j].card_id %>" method="post">
+                      <input class="form-control" type="text" name="card_name" value="<%= boardInfo[i].column_cards[j].card_name %>">
+                      <!--button type="button" class="close" data-dismiss="modal" aria-label="Close"-->
+                        <!--span aria-hidden="true">&times;</span-->
+                      <!--/button-->
+                    </div>
+                    <!-- MODAL -->
+
+
+                      <div class="modal-body">
+                        <textarea class="form-control" name="content" rows="8" cols="80"><%= boardInfo[i].column_cards[j].content %></textarea>
+                      </div>
+
+
+
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <a href="/delete/board/<%= boardID[0] %>/card/<%= boardInfo[i].column_cards[j].card_id %>" class="btn btn-secondary">Delete Card</a>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </form>
+
+                  </div>
+                </div>
+                </div>
+
+              </div>
+
+              <% } %>
+
+              <form class="" action="/delete/column/<%= `${boardInfo[i].column_id}` %>" method="post">
+                <input class="form-control" type="hidden" name="board_id" value="<%= boardInfo[i].board_id %>">
+                <button href="/delete/column/<%= `${boardInfo[i].column_id}` %>" type="submit" class="trash-button">
+                  <i class="far fa-trash-alt"></i>
+                </button>
+                </form>
+
+            </div>
+
+          </div>
+
+          <% } %>
+
+                <div class="col-md-3">
+
+                  <div class="add-single-column">
+
+                    <div id="addColumnPlus" class="add-column-plus"><i class="fas fa-plus"></i></div>
+
+                    <div id="addColumnForm" class="add-column-form">
+                      <form class="" action="/create/column" method="post">
+                        <input class="form-control" type="text" name="column_name" placeholder="New Column Title">
+                        <input type="hidden" name="board_id" value="<%= boardID %>">
+                      </form>
+                    </div>
+
+
+
+                  </div>
+
+                </div>
+
+    </div>
+
+
+<!-- MODAL FUNCTIONALITY -->
+<!-- MODAL BUTTON -->
+
+</button>
+
+<!-- MODAL -->
+
+</div><!--end wrapper div-->
+
+<footer>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div style="color:white">Copyright 2018 | Cardify.it</div>
+  </nav>
+</footer>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/js/single_board.js"></script>
+</body>
+
+</html>

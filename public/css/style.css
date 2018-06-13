@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Thambi|Carter+One|Fugaz+One|Permanent+Marker');
+.wrapper2 {
+  min-height:90vh;
+  text-align: center;
+}
+.wrapper {
+  min-height:90vh;
+  text-align: center;
+  padding: 0 50px;
+}
+h2 {
+  color:silver;
+  margin-top:10px;
+}
+
+h3 {
+  color:#007bff;
+}
+h4 {
+  color:#007bff;
+}
+p {
+  color:gray;
+}
+textarea {
+  max-width:100%;
+}
+input {
+  color:silver;
+}
+footer {
+  margin-top:50px;
+}
+.btn {
+  margin:15px;
+  min-width:50px;
+  font-size: 24px;
+}
+.trash-button {
+  border:none;
+  background-color:#f2f2f2;
+  margin-top:20px;
+}
+.fa-trash-alt {
+  color:gray;
+  font-size: 22px;
+
+}
+.logo {
+  font-family: Baloo Thambi;
+  font-size: 34px;
+}
+.navbar {
+  padding:10px 11%;
+}
+.fa-clone {
+  font-size:26px;
+}
+
+.single-board {
+  min-width: 200px;
+  min-height:200px;
+  background-color: #f2f2f2;
+  margin-top:25px;
+  border-radius:7px;
+  padding-top:40%;
+  padding-bottom:30%;
+  box-shadow: 1px 1px 2px silver;
+}
+.add-single-board {
+  min-width: 200px;
+  min-height:270px;
+  margin-top:25px;
+  border: 4px silver dashed;
+  border-radius:7px;
+  padding-top:40%;
+  padding-bottom:40%;
+
+}
+.single-column {
+  margin-left:auto;
+  margin-right:auto;
+  width: 100%;
+  min-height:400px;
+  background-color: #f2f2f2;
+  margin-top:25px;
+  border-radius:7px;
+  padding-top:5%;
+  padding-bottom:10%;
+  padding-left:25px;
+  padding-right:25px;
+  box-shadow: 1px 1px 2px silver;
+}
+.single-card {
+  background-color: white;
+  margin-top:10px;
+  margin-bottom:10px;
+  padding:10px 10px;
+  min-height:100px;
+  border-radius: 5px;
+  text-align: left;
+  box-shadow: 1px 1px 2px silver;
+}
+.column-name {
+  color:#007bff;
+}
+.card-name {
+  color:silver;
+}
+.add-board-plus {
+  font-size: 25px;
+  color: #007bff;
+}
+.add-card-plus {
+  font-size: 25px;
+  color: silver;
+}
+.form-control {
+  max-width:100%;
+  margin:auto;
+  padding-left:;
+}
+.board-name-input {
+  display:none;
+}
+.class-name-input {
+  display:none;
+}
+.add-single-column {
+  max-width: 100%;
+  min-height:400px;
+  margin-top:25px;
+  border-radius:7px;
+  border: 4px silver dashed;
+  padding-top:40%;
+  padding-bottom:30%;
+}
+.add-column-plus {
+  font-size: 25px;
+  color: #007bff;
+}
+.add-column-form {
+  display:none;
+}
+.add-card-form {
+  display:;
+}
+.the-board-title-form {
+  margin-top:20px;
+  display:none;
+}
+.the-board-title-form-input {
+  text-align: center;
+  font-size: 30px;
+  color:silver;
+}
+.the-column-title-form {
+  display:none;
+}
+.banner {
+  background-color:;
+  min-height: 100vh;
+  background-image: url('/images/splash.jpg');
+  background-size:cover;
+  padding:25vh 0;
+}
+.headline {
+  font-size: 70px;
+  color:white;
+  text-shadow: 2px 2px gray;
+  font-family: Permanent Marker;
+}
+.sub-headline {
+  font-size: 30px;
+  color:white;
+  text-shadow: 2px 2px gray;
+  font-family: verdana;
+}
+.icon-features {
+  background-color:#f2f2f2;
+  min-height: 170px;
+}
+.section1 {
+  background-color: #f2f2f2;
+  min-height: 500px;
+}
+.section2 {
+  background-color: #f2f2f2;
+  min-height:500px;
+}
+.single-icon {
+  font-size: 70px;
+  color:#007bff;
+}
+.icon-title {
+  color:#007bff;
+  font-size:30px;
+}
+.login-register-form {
+  max-width:40%;
+  margin:auto;
+}
